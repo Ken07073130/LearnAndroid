@@ -1,16 +1,16 @@
 package com.example.ken.helloworld;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
-
+    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,19 +25,35 @@ public class MainActivity extends ActionBarActivity {
                 //启动从界面  参数 Intent
 
                 //创建Intent容器
-                Intent it = new Intent(MainActivity.this,argsBty.class);
+                //Intent it = new Intent(MainActivity.this,argsBty.class);
                 //创建Bundle,Bundle是一组Key-Value的Map
-                Bundle b= new Bundle();
-                b.putString("name","Future Power");
-                b.putInt("time",3);
+                //Bundle b= new Bundle();
+                //b.putString("name","Future Power");
+               // b.putInt("time",3);
                 //Intent容器添加b
-                it.putExtras(b);
-                startActivity(it);
+                //it.putExtras(b);
+
+
+                Intent it =new Intent(MainActivity.this,argsBty.class);
+                it.putExtra("user",new User("Future Power",3));
+                //startActivity(it);
+                textView= (TextView) findViewById(R.id.textView);
+
+                startActivityForResult(it,0);
+
             }
 
 
         });
     }
+
+    //重写接收事件
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        textView.setText("传回的参数为:" + data.getStringExtra("data1"));
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

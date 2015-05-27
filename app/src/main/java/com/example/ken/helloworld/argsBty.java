@@ -5,11 +5,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class argsBty extends ActionBarActivity {
     private TextView tv;
+    private EditText edtContent;
+    private Button btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,10 +22,33 @@ public class argsBty extends ActionBarActivity {
         //Intent i= getIntent();
         //tv=(TextView)findViewById(R.id.tv);
         //tv.setText( i.getStringExtra("title"));
-        Intent it= getIntent();
-        Bundle b=it.getExtras();
-        tv=(TextView)findViewById(R.id.tv);
-        tv.setText(String.format("name=%s,time=%d",b.getString("name"),b.getInt("time")));
+        //Intent it= getIntent();
+        // Bundle b=it.getExtras();
+        //tv=(TextView)findViewById(R.id.tv);
+        //tv.setText(String.format("name=%s,time=%d",b.getString("name"),b.getInt("time")));
+
+        //Intent it= getIntent();
+        // User user= (User)it.getParcelableExtra("user");
+        // tv=(TextView)findViewById(R.id.tv);
+        //tv.setText(String.format("UserInfo(name=%s,id=%d)",user.getUserName(),user.getId()));
+
+        btnBack= (Button) findViewById(R.id.btnBack);
+        edtContent= (EditText) findViewById(R.id.edtContent);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //定义用于回传的容器
+                Intent it= new Intent();
+                it.putExtra("data1",edtContent.getText().toString());
+                //设置回传函数 重要
+                setResult(1,it);
+                //一定要finish()
+                finish();
+
+            }
+        });
+
+
     }
 
     @Override

@@ -29,17 +29,25 @@ public class MainActivity extends ActionBarActivity {
                 //创建Bundle,Bundle是一组Key-Value的Map
                 //Bundle b= new Bundle();
                 //b.putString("name","Future Power");
-               // b.putInt("time",3);
+                // b.putInt("time",3);
                 //Intent容器添加b
                 //it.putExtras(b);
 
-
-                Intent it =new Intent(MainActivity.this,argsBty.class);
-                it.putExtra("user",new User("Future Power",3));
+                //Intent it =new Intent(MainActivity.this,argsBty.class);
+                //it.putExtra("user",new User("Future Power",3));
                 //startActivity(it);
-                textView= (TextView) findViewById(R.id.textView);
+                //textView= (TextView)
+                // findViewById(R.id.textView);
+                //startActivityForResult(it,0);
 
-                startActivityForResult(it,0);
+                //自定义显示Intent
+                //Intent i= new Intent(MainActivity.this,myAty.class);
+                //startActivity(i);
+
+                //隐式Inent调用
+                //Intent i = new Intent(myAty.ACTION);
+                //startActivity(i);
+
 
             }
 

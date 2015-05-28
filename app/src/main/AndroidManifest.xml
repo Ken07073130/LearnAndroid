@@ -12,8 +12,8 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
         <activity
@@ -23,6 +23,24 @@
         <activity
             android:name=".argsBty"
             android:label="@string/title_activity_args_bty" >
+        </activity>
+        <!-- 隐式Intent的使用 -->
+        <activity android:name=".myAty" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.example.ken.helloworld.action.intent.myAty" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".httpAty"
+            android:label="@string/title_activity_http_aty" >
+            <intent-filter>
+                <category android:name="ANDROID.INTENT.CATEGORY.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="app" />
+            </intent-filter>
         </activity>
     </application>
 

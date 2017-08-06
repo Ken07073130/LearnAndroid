@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ken.helloworld" >
+    package="com.example.ken.helloworld">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".AnotherActivity"
-            android:label="@string/title_activity_another" >
-        </activity>
+            android:label="@string/title_activity_another" />
         <activity
             android:name=".argsBty"
-            android:label="@string/title_activity_args_bty" >
-        </activity>
+            android:label="@string/title_activity_args_bty" />
         <!-- 隐式Intent的使用 -->
-        <activity android:name=".myAty" >
+        <activity android:name=".myAty">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
 
@@ -34,14 +32,26 @@
         </activity>
         <activity
             android:name=".httpAty"
-            android:label="@string/title_activity_http_aty" >
+            android:label="@string/title_activity_http_aty">
             <intent-filter>
                 <category android:name="ANDROID.INTENT.CATEGORY.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <data android:scheme="app" />
             </intent-filter>
         </activity>
+        <activity android:name=".SecondAty">
+            <intent-filter>
+
+                <!-- 隐式intent的调用配置 -->
+                <action android:name="com.example.activity.ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ListViewActivity"></activity>
     </application>
 
 </manifest>
